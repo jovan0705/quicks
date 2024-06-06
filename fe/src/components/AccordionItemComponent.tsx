@@ -32,7 +32,7 @@ import logoDescription from "../assets/logoDescription.png";
 import axios from "axios"
 import "../pages/style.css"
 
-const AccordionItemComponent = ({taskList, category, taskDoneFlag, setTaskDoneFlag, taskDescriptionEditFlag, setTaskDescriptionEditFlag, tempEditDesc, setTempEditDesc, taskSelectShow, setTaskSelectShow, taskDescriptionSticker, handleFetchTask, setTaskDescriptionSticker}) => {
+const AccordionItemComponent = ({taskList, category, taskDoneFlag, setTaskDoneFlag, taskDescriptionEditFlag, setTaskDescriptionEditFlag, tempEditDesc, setTempEditDesc, taskSelectShow, setTaskSelectShow, taskDescriptionSticker, handleFetchTask, setTaskDescriptionSticker}: any) => {
     const handleUpdateTags = async (payload: any) => {
         console.log(payload, 'ini payload')
         const status = payload.status ? "done" : "not done";
@@ -84,7 +84,7 @@ const AccordionItemComponent = ({taskList, category, taskDoneFlag, setTaskDoneFl
           setTaskDescriptionSticker([taskDescriptionSticker[0], taskDescriptionSticker[1], tempStickerArr])
         }
       }
-    const handleSubmitSticker = async (id, tags) => {
+    const handleSubmitSticker = async (id: any, tags: any) => {
         await axios.put(
           `https://dummyapi.io/data/v1/post/${id}`,
           {
