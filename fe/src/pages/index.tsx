@@ -857,7 +857,7 @@ export default function Home() {
                               borderRadius={"6px"}
                               py={"6px"}
                               px={"8px"}
-                              display={le.message.split('---').length > 1 ? "flex" : "none"}
+                              display={le.message.split('---')[1] ? "flex" : "none"}
                               mb={"4px"}
                             >
                               <Text
@@ -865,6 +865,7 @@ export default function Home() {
                                 fontSize={"12px"}
                                 mb={"4px"}
                               >
+                                {le.message}
                                 {le.message.split("---")[1]}
                               </Text>
                             </Box>
@@ -1058,7 +1059,7 @@ export default function Home() {
               onClick={() => {
                 const payload = {
                   id: selectedChat.id,
-                  message: repliedChat ? `${chatReply}---${repliedChat.message}` : chatReply
+                  message: repliedChat.message ? `${chatReply}---${repliedChat.message}` : chatReply
                 }
                 handleSendChat(payload)
               }}
